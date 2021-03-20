@@ -55,6 +55,7 @@ func Serve(router *mux.Router, store *storage.Storage, pool *worker.Pool) {
 	sr.HandleFunc("/feeds/{feedID}/icon", handler.feedIcon).Methods(http.MethodGet)
 	sr.HandleFunc("/feeds/{feedID}/mark-all-as-read", handler.markFeedAsRead).Methods(http.MethodPut)
 	sr.HandleFunc("/export", handler.exportFeeds).Methods(http.MethodGet)
+	sr.HandleFunc("/icon/{iconID}", handler.showIcon).Methods(http.MethodGet)
 	sr.HandleFunc("/import", handler.importFeeds).Methods(http.MethodPost)
 	sr.HandleFunc("/feeds/{feedID}/entries", handler.getFeedEntries).Methods(http.MethodGet)
 	sr.HandleFunc("/feeds/{feedID}/entries/{entryID}", handler.getFeedEntry).Methods(http.MethodGet)
